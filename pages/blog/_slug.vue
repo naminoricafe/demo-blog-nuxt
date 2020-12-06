@@ -10,15 +10,16 @@
       />
       <div class="overlay"></div>
       <div class="absolute top-32 left-32 text-white">
-        <NuxtLink to="/"><Logo /></NuxtLink>
-        <div class="mt-16 -mb-3 flex uppercase text-sm">
+        <NuxtLink to="/"><Logo /></NuxtLink></div>
+        <!--<div class="mt-16 -mb-3 flex uppercase text-sm">
           <p class="mr-3">
             {{ formatDate(article.updatedAt) }}
           </p>
           <span class="mr-3">•</span>
           <p>{{ article.author.name }}</p>
         </div>
-        <h1 class="text-4xl font-bold text-black ">{{ article.title }}</h1>
+        <h1 class="text-4xl font-bold text-black ">{{ article.title }}</h1>-->
+      <div class="absolute bottom-32 right-32 text-white">
         <span v-for="(tag, id) in article.tags" :key="id">
           <NuxtLink :to="`/blog/tag/${tags[tag].slug}`">
             <span
@@ -42,7 +43,7 @@
         >
           Tutorial
         </a>
-        <AppSearchInput />
+        <!--<AppSearchInput />-->
       </div>
     </div>
     <div
@@ -90,8 +91,8 @@ export default {
       .only(['name', 'slug'])
       .where({ name: { $containsAny: article.tags } })
       .fetch()
-    const tags = Object.assign({}, ...tagsList.map((s) => ({ [s.name]: s })))
-    const [prev, next] = await $content('articles')
+        const tags = Object.assign({}, ...tagsList.map((s) => ({ [s.name]: s })))
+        const [prev, next] = await $content('articles')
       .only(['title', 'slug'])
       .sortBy('createdAt', 'asc')
       .surround(params.slug)

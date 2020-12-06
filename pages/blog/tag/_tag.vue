@@ -15,10 +15,10 @@
       <NuxtLink to="/"><Logo /></NuxtLink>
       <div class="mt-16 -mb-3 flex flex-col text-sm">
         <div class="relative lg:w-1/2 xs:w-full xs:h-84 lg:h-full post-left">
-          <h1 class="text-4xl font-bold uppercase">
+          <!--<h1 class="text-4xl font-bold uppercase">
             {{ tag.name }}
           </h1>
-          <p class="mb-4 uppercase">{{ tag.description }}</p>
+          <p class="mb-4 uppercase">{{ tag.description }}</p>-->
 
           <nuxt-content :document="tag" />
         </div>
@@ -27,26 +27,26 @@
     <div
       class="relative xs:py-8 xs:px-8 lg:py-32 lg:px-16 lg:w-1/2 xs:w-full h-full overflow-y-scroll markdown-body post-right custom-scroll"
     >
-      <NuxtLink to="/"
+      <!--<NuxtLink to="/"
         ><p class="hover:underline">すべての記事一覧</p></NuxtLink
-      >
-      <h3 class="mb-4 font-bold text-4xl">関東ブロック（{{ tag.name }}）の記事</h3>
+      >-->
+      <h3 class="mb-4 font-bold text-2xl text-center">{{ tag.name }}の記事一覧</h3>
       <ul>
         <li
           v-for="article in articles"
           :key="article.slug"
-          class="w-full px-2 xs:mb-6 md:mb-12 article-card"
+          class="w-full px-2 xs:mb-6 md:mb-12 lg:1/2 article-card"
         >
           <NuxtLink
             :to="{ name: 'blog-slug', params: { slug: article.slug } }"
             class="flex transition-shadow duration-150 ease-in-out shadow-sm hover:shadow-md xxlmax:flex-col"
           >
-            <img
+            <!--<img
               v-if="article.img"
               class="h-48 xxlmin:w-1/2 xxlmax:w-full object-cover"
               :src="article.img"
               :alt="article.alt"
-            />
+            />-->
 
             <div
               class="p-6 flex flex-col justify-between xxlmin:w-1/2 xxlmax:w-full"
